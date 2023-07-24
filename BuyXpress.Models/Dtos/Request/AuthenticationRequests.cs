@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using BuyXpress.Models.Enums;
 
 namespace BuyXpress.Models.Dtos.Request
 {
@@ -6,7 +7,7 @@ namespace BuyXpress.Models.Dtos.Request
     {
         [Required]
         public string Firstname { get; set; }
-        public string Middlename { get; set; }
+        public string? Middlename { get; set; }
         [Required]
         public string Lastname { get; set; }
         [Required]
@@ -14,9 +15,11 @@ namespace BuyXpress.Models.Dtos.Request
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-        [Required]
+        
         [Phone]
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
+        [Required]
+        public UserType UserTypeId { get; set; }
     }
 
     public class SignInRequest
