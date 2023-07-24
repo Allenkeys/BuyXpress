@@ -10,7 +10,7 @@ namespace BuyXpress.Services.Interfaces
 {
     public interface IAuthenticationService
     {
-        Task<IdentityResult> SignUp(UserSignUpRequest request);
+        Task<IdentityResult> SignUpAsync(UserSignUpRequest request);
         Task SignIn(SignInRequest request);
     }
 }

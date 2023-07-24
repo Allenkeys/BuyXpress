@@ -24,7 +24,7 @@ namespace BuyXpress.Services.Implementations
             _roleManager = roleManager;
         }
 
-        public async Task<IdentityResult> SignUp(UserSignUpRequest request)
+        public async Task<IdentityResult> SignUpAsync(UserSignUpRequest request)
         {
             ApplicationUser existingUser = await _userManager.FindByEmailAsync(request.Email);
             if (existingUser != null)
