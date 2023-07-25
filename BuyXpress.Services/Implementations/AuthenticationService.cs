@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BuyXpress.Models.Dtos.Request;
+﻿using BuyXpress.Models.Dtos.Request;
 using BuyXpress.Models.Entities;
 using BuyXpress.Models.Enums;
 using BuyXpress.Services.Interfaces;
@@ -14,14 +9,9 @@ namespace BuyXpress.Services.Implementations
     public class AuthenticationService : IAuthenticationService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        public AuthenticationService(
-            UserManager<ApplicationUser> userManager, 
-            RoleManager<IdentityRole> roleManager
-            )
+        public AuthenticationService(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
-            _roleManager = roleManager;
         }
 
         public async Task<IdentityResult> SignUpAsync(UserSignUpRequest request)
@@ -32,11 +22,12 @@ namespace BuyXpress.Services.Implementations
 
             ApplicationUser user = new()
             {
+                Id = Guid.NewGuid().ToString(),
                 Firstname = request.Firstname,
                 Middlename = request.Middlename,
                 Lastname = request.Lastname,
                 Email = request.Email,
-                PhoneNumber = request.Phone,
+                UserName = request.Username,
                 UserTypeId = request.UserTypeId,
                 IsActive = true
             };
