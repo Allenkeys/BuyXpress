@@ -15,9 +15,8 @@ namespace BuyXpress.Models.Dtos.Request
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-        
-        [Phone]
-        public string? Phone { get; set; }
+        [Required]
+        public string Username { get; set; }
         [Required]
         public UserType UserTypeId { get; set; }
     }
