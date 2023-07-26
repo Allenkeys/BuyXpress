@@ -16,10 +16,17 @@ namespace BuyXpress.Controllers
             _authenticationService = authenticationService;
         }
         
-        [HttpPost("sign-up", Name = "Register a user")]
+        [HttpPost("sign-up", Name = "Register-A-User")]
         public async Task<IActionResult> SignUp([FromBody] UserSignUpRequest request)
         {
             IdentityResult result = await _authenticationService.SignUpAsync(request);
+            return Ok(result);
+        }
+
+        [HttpPost("sign-in", Name = "Log-In-User")]
+        public async Task<IActionResult> SignIn([FromBody] SignInRequest request)
+        {
+            IEnumerable<string> result = await _authenticationService.SignIn(request);
             return Ok(result);
         }
     }

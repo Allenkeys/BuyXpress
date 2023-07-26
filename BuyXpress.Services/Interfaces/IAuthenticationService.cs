@@ -6,6 +6,6 @@ namespace BuyXpress.Services.Interfaces
     public interface IAuthenticationService
     {
         Task<IdentityResult> SignUpAsync(UserSignUpRequest request);
-        Task SignIn(SignInRequest request);
+        Task<IEnumerable<string>> SignIn(SignInRequest request);
     }
 }

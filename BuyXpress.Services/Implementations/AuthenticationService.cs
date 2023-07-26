@@ -40,9 +40,23 @@ namespace BuyXpress.Services.Implementations
 
             return result;
         }
-        public Task SignIn(SignInRequest request)
+        public async Task<IEnumerable<string>> SignIn(SignInRequest request)
         {
-            throw new NotImplementedException();
+            ApplicationUser user = await _userManager.FindByEmailAsync(request.Email);
+            bool isValidPassword = await _userManager.CheckPasswordAsync(user, request.Password);
+            if (!isValidPassword || user is null)
+                throw new InvalidOperationException("Invalid email or password");
+
+            if (!user.IsActive)
+                throw new InvalidOperationException("Account is inactive");
+
+            string userType = user.UserTypeId.ToStringValue()!;
+
+            string fullname = string.IsNullOrWhiteSpace(user.Middlename)
+                ? $"{user.Firstname} {user.Lastname}"
+                : $"{user.Firstname} {user.Middlename} {user.Lastname}";
+
+            return new List<string>() { fullname, userType };
         }
     }
 }
