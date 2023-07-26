@@ -1,4 +1,5 @@
 using BuyXpress.Extensions;
+using BuyXpress.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,5 +27,15 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+try
+{
+    await app.SeedAll();
+}
+catch (Exception e)
+{
+
+	throw new Exception($"Migration failed: {e.Message}");
+}
 
 app.Run();
