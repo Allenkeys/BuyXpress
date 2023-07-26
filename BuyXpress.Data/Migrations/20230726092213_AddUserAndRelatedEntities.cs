@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BuyXpress.Data.Migrations
 {
-    public partial class AddApplicationUserEntity : Migration
+    public partial class AddUserAndRelatedEntities : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

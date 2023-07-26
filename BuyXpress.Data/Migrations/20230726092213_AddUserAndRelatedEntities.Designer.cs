@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuyXpress.Data.Migrations
 {
     [DbContext(typeof(BuyXpressDbContext))]
-    [Migration("20230724183516_AddApplicationUserEntity")]
-    partial class AddApplicationUserEntity
+    [Migration("20230726092213_AddUserAndRelatedEntities")]
+    partial class AddUserAndRelatedEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

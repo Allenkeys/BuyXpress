@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BuyXpress.Models.Entities
 {
-    public class ApplicationUser : IdentityUser<string>
+    public class ApplicationUser : IdentityUser
     {
         public string Firstname { get; set; }
         public string Middlename { get; set; }
