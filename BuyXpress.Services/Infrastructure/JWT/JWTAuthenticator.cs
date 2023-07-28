@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BuyXpress.Services.Infrastructure.JWT
 {
-    internal class JWTAuthenticator : IJWTAuthenticator
+    public class JWTAuthenticator : IJWTAuthenticator
     {
         private readonly IConfiguration _configuration;
         public JWTAuthenticator(IConfiguration configuration)
