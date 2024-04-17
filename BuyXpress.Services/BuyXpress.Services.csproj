@@ -10,8 +10,4 @@
     <ProjectReference Include="..\BuyXpress.Data\BuyXpress.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
-  </ItemGroup>
-
 </Project>
